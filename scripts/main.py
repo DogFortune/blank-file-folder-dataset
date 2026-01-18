@@ -55,13 +55,13 @@ def create_folder(folder_data: dict):
 
 
 def main():
-    file_data = __load_json("./files.json")
+    file_data = __load_json("./manifests/files.json")
     create_file(file_data, False)
 
-    ext_data = __load_json("./extensions.json")
+    ext_data = __load_json("./manifests/extensions.json")
     create_file(ext_data, True)
 
-    folder_data = __load_json("./folders.json")
+    folder_data = __load_json("./manifests/folders.json")
     create_folder(folder_data)
 
 
