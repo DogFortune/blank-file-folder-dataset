@@ -1,0 +1,15 @@
+{
+  "name": "blank-file-folder-dataset-creater",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "material-icon-theme": "^5.30.0"
+  }
+}

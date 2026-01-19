@@ -1,19 +1,40 @@
 name: dataset-update
 
 on:
+  schedule:
+    - cron: "0 4 15 * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
-  dataset-update:
+  update-dataset:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+      - uses: oven-sh/setup-bun@v2
         with:
           bun-version: 1.3.6
-      - name: Setup Python
-        uses: actions/setup-python@v6
+      - name: Setup Bun
+        run: bun install
+      - name: Update Check Theme
+        run: bun update "material-icon-theme"
+      - name: Update Manifest
+        run: bun run scripts/index.ts
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.14"
+      - name: Update Dataset
+        run: python scripts/main.py
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: Update Dataset
+          reviewers: DogFortune
+          delete-branch: true
+          branch: update/theme
+          branch-suffix: timestamp
+          title: Update Dataset
