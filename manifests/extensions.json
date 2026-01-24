@@ -711,6 +711,7 @@
     "tfvars": "terraform",
     "tfstate": "terraform",
     "tfbackend": "terraform",
+    "terraformignore": "terraform",
     "tofu": "opentofu",
     "blade.php": "laravel",
     "inky.php": "laravel",

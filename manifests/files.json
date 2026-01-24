@@ -96,6 +96,7 @@
     ".ruff.toml": "ruff",
     "uv.toml": "uv",
     ".uv.toml": "uv",
+    "uv.lock": "uv",
     "sconstruct": "scons",
     "sconscript": "scons",
     "scsub": "scons",
