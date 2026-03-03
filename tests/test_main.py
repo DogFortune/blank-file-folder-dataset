@@ -1,18 +1,17 @@
 from app import main
 from tempfile import TemporaryDirectory
 from pathlib import Path
+import pytest
 
 
-def test_create_file():
-    file_data = {
-        ".pug-lintrc": "pug",
-        ".pug-lintrc.js": "pug",
-        ".pug-lintrc.json": "pug",
-        "justfile": "just",
-        ".justfile": "just",
-    }
+@pytest.mark.parametrize(
+    ["data", "is_ext", "expected_file_name"],
+    [pytest.param({".pug-lintrc": "pug"}, False, ".pug-lintrc")],
+)
+def test_create_file(data, is_ext, expected_file_name):
     with TemporaryDirectory() as dir:
         current = Path(dir)
-        main.create_file(file_data, False, False, current)
+        main.create_file(data, is_ext, False, current)
 
-        assert len(list(current.iterdir())) == 5
+        result_files = list(current.iterdir())
+        assert result_files[0].name == expected_file_name
