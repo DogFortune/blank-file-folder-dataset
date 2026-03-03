@@ -3,6 +3,9 @@ name: dataset-update
 on:
   schedule:
     - cron: 0 4 * * *
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
