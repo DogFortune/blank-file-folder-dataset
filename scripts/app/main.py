@@ -10,7 +10,9 @@ def load_json(path: str):
     return raw_json
 
 
-def create_file(file_data: dict, is_ext: bool, verbose: bool):
+def create_file(
+    file_data: dict, is_ext: bool, verbose: bool, current: Path = Path("files")
+):
     """ファイルを作成します
 
     :param file_data: テーマから抽出したファイル情報
@@ -20,7 +22,6 @@ def create_file(file_data: dict, is_ext: bool, verbose: bool):
     :param verbose: 詳細表示か否か
     :type verbose: bool
     """
-    current = Path("files")
     if not current.is_dir():
         current.mkdir()
     for key in file_data.keys():
