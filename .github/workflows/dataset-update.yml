@@ -31,7 +31,7 @@ jobs:
         with:
           python-version: "3.14"
       - name: Update Dataset
-        run: python scripts/main.py
+        run: python scripts/app/main.py
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:

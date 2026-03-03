@@ -3,7 +3,7 @@ import argparse
 from pathlib import Path
 
 
-def __load_json(path: str):
+def load_json(path: str):
     with open(path) as f:
         raw_json = json.load(f)
 
@@ -73,13 +73,13 @@ def main(args=None):
 
     verbose = args.verbose
 
-    file_data = __load_json("./manifests/files.json")
+    file_data = load_json("./manifests/files.json")
     create_file(file_data, False, verbose)
 
-    ext_data = __load_json("./manifests/extensions.json")
+    ext_data = load_json("./manifests/extensions.json")
     create_file(ext_data, True, verbose)
 
-    folder_data = __load_json("./manifests/folders.json")
+    folder_data = load_json("./manifests/folders.json")
     create_folder(folder_data, verbose)
 
 
