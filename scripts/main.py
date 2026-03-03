@@ -27,10 +27,9 @@ def create_file(file_data: dict, is_ext: bool, verbose: bool):
         file_path = (
             current.joinpath(f"DummyName.{key}") if is_ext else current.joinpath(key)
         )
-        if not verbose:
-            continue
-        elif file_path.is_file():
-            print(f"skip: {str(file_path)}")
+        if file_path.is_file():
+            if verbose:
+                print(f"skip: {str(file_path)}")
             continue
         else:
             file_path.parent.mkdir(parents=True, exist_ok=True)
@@ -51,10 +50,9 @@ def create_folder(folder_data: dict, verbose: bool):
         current.mkdir()
     for folder_name in folder_data.keys():
         folder_path = current.joinpath(folder_name)
-        if not verbose:
-            continue
-        elif folder_path.is_dir():
-            print(f"skip: {str(folder_path)}")
+        if folder_path.is_dir():
+            if verbose:
+                print(f"skip: {str(folder_path)}")
             continue
         else:
             folder_path.mkdir(parents=True)
