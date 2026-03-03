@@ -24,9 +24,9 @@ def create_file(
     """
     if not current.is_dir():
         current.mkdir()
-    for key in file_data.keys():
+    for key, value in file_data.items():
         file_path = (
-            current.joinpath(f"DummyName.{key}") if is_ext else current.joinpath(key)
+            current.joinpath(f"{value}.{key}") if is_ext else current.joinpath(key)
         )
         if file_path.is_file():
             if verbose:
