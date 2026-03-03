@@ -6,7 +6,10 @@ import pytest
 
 @pytest.mark.parametrize(
     ["data", "is_ext", "expected_file_name"],
-    [pytest.param({".pug-lintrc": "pug"}, False, ".pug-lintrc")],
+    [
+        pytest.param({".pug-lintrc": "pug"}, False, ".pug-lintrc"),
+        pytest.param({"png": "image"}, True, "image.png"),
+    ],
 )
 def test_create_file(data, is_ext, expected_file_name):
     with TemporaryDirectory() as dir:
