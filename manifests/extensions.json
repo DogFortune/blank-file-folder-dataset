@@ -55,6 +55,7 @@
     "jrxml": "xml",
     "xmp": "xml",
     "toml": "toml",
+    "toon": "toon",
     "png": "image",
     "jpeg": "image",
     "jpg": "image",
@@ -777,6 +778,7 @@
     "story.tsx": "storybook",
     "stories.svelte": "storybook",
     "story.mdx": "storybook",
+    "stories.vue": "storybook",
     "wpy": "wepy",
     "hcl": "hcl",
     "san": "san",
@@ -1159,5 +1161,6 @@
     "toc": "toc",
     "cue": "cue",
     "lean": "lean",
-    "sls": "salt"
+    "sls": "salt",
+    "m2": "macaulay2"
 }
