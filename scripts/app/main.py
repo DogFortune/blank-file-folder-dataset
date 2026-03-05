@@ -3,14 +3,16 @@ import argparse
 from pathlib import Path
 
 
-def __load_json(path: str):
+def load_json(path: str):
     with open(path) as f:
         raw_json = json.load(f)
 
     return raw_json
 
 
-def create_file(file_data: dict, is_ext: bool, verbose: bool):
+def create_file(
+    file_data: dict, is_ext: bool, verbose: bool, current: Path = Path("files")
+):
     """ファイルを作成します
 
     :param file_data: テーマから抽出したファイル情報
@@ -20,12 +22,11 @@ def create_file(file_data: dict, is_ext: bool, verbose: bool):
     :param verbose: 詳細表示か否か
     :type verbose: bool
     """
-    current = Path("files")
     if not current.is_dir():
         current.mkdir()
-    for key in file_data.keys():
+    for key, value in file_data.items():
         file_path = (
-            current.joinpath(f"DummyName.{key}") if is_ext else current.joinpath(key)
+            current.joinpath(f"{value}.{key}") if is_ext else current.joinpath(key)
         )
         if file_path.is_file():
             if verbose:
@@ -37,7 +38,7 @@ def create_file(file_data: dict, is_ext: bool, verbose: bool):
             print(f"create: {str(file_path)}")
 
 
-def create_folder(folder_data: dict, verbose: bool):
+def create_folder(folder_data: dict, verbose: bool, current: Path = Path("folders")):
     """フォルダを作成します。フォルダだけだとgit管理に含まれないのでからのファイルをフォルダ内に作っておきます。
 
     :param folder_info_json: _description_
@@ -45,7 +46,6 @@ def create_folder(folder_data: dict, verbose: bool):
     :param verbose: 詳細表示か否か
     :type verbose: bool
     """
-    current = Path("folders")
     if not current.is_dir():
         current.mkdir()
     for folder_name in folder_data.keys():
@@ -73,13 +73,13 @@ def main(args=None):
 
     verbose = args.verbose
 
-    file_data = __load_json("./manifests/files.json")
+    file_data = load_json("./manifests/files.json")
     create_file(file_data, False, verbose)
 
-    ext_data = __load_json("./manifests/extensions.json")
+    ext_data = load_json("./manifests/extensions.json")
     create_file(ext_data, True, verbose)
 
-    folder_data = __load_json("./manifests/folders.json")
+    folder_data = load_json("./manifests/folders.json")
     create_folder(folder_data, verbose)
 
 

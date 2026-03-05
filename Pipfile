@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 
 [dev-packages]
+pytest = "*"
+black = "*"
 
 [requires]
 python_version = "3.14"

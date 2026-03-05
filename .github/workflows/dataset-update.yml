@@ -9,10 +9,34 @@ on:
   workflow_dispatch:
 
 permissions:
+  checks: write
   contents: write
   pull-requests: write
 
 jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+          cache: "pipenv"
+      - name: Install pipenv
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pipenv
+      - name: Install packages
+        run: pipenv sync --dev
+      - name: Run pytest
+        run: pipenv run pytest -q --junit-xml pytest.xml
+        continue-on-error: true
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v5
+        if: success() || failure()
+        with:
+          report_paths: "pytest.xml"
   update-dataset:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
@@ -31,7 +55,7 @@ jobs:
         with:
           python-version: "3.14"
       - name: Update Dataset
-        run: python scripts/main.py
+        run: python scripts/app/main.py
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
