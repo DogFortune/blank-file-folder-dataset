@@ -38,7 +38,7 @@ def create_file(
             print(f"create: {str(file_path)}")
 
 
-def create_folder(folder_data: dict, verbose: bool):
+def create_folder(folder_data: dict, verbose: bool, current: Path = Path("folders")):
     """フォルダを作成します。フォルダだけだとgit管理に含まれないのでからのファイルをフォルダ内に作っておきます。
 
     :param folder_info_json: _description_
@@ -46,7 +46,6 @@ def create_folder(folder_data: dict, verbose: bool):
     :param verbose: 詳細表示か否か
     :type verbose: bool
     """
-    current = Path("folders")
     if not current.is_dir():
         current.mkdir()
     for folder_name in folder_data.keys():
