@@ -46,6 +46,5 @@ def test_create_folder(data, expected_folder_name):
         main.create_folder(data, False, current)
 
         result_folder = list(current.iterdir())
-        print(result_folder)
         assert len(result_folder) == 1
         assert result_folder[0].name == expected_folder_name
