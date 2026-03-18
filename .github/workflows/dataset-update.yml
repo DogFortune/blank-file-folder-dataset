@@ -33,7 +33,7 @@ jobs:
         run: pipenv run pytest -q --junit-xml pytest.xml
         continue-on-error: true
       - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v5
+        uses: mikepenz/action-junit-report@v6
         if: success() || failure()
         with:
           report_paths: "pytest.xml"
