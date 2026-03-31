@@ -20,6 +20,7 @@
     "json5": "json",
     "jsonl": "json",
     "ndjson": "json",
+    "schema.json": "json_schema",
     "hjson": "hjson",
     "jinja": "jinja",
     "jinja2": "jinja",
@@ -218,6 +219,7 @@
     "vcxitems.filters": "visualstudio",
     "vcxproj": "visualstudio",
     "vcxproj.filters": "visualstudio",
+    "wixproj": "visualstudio",
     "vcl": "varnish",
     "pdb": "database",
     "sql": "database",
@@ -941,6 +943,7 @@
     "ast": "sas",
     "sast": "sas",
     "nupkg": "nuget",
+    "nuspec": "nuget",
     "command": "command",
     "dsc": "denizenscript",
     "code-search": "search",
@@ -1162,5 +1165,9 @@
     "cue": "cue",
     "lean": "lean",
     "sls": "salt",
-    "m2": "macaulay2"
+    "m2": "macaulay2",
+    "skill.md": "skill",
+    "skills.md": "skill",
+    "instructions.md": "instructions",
+    "instruction.md": "instructions"
 }
