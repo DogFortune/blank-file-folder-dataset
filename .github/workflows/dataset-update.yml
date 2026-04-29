@@ -51,7 +51,7 @@ jobs:
         run: bun update "material-icon-theme"
       - name: Update Manifest
         run: bun run scripts/index.ts
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 #v6.2.0
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: "3.14"
       - name: Update Dataset
@@ -59,9 +59,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
-          commit-message: Update Dataset
+          commit-message: Update material-icon-theme
           reviewers: DogFortune
           delete-branch: true
-          branch: update/theme
-          branch-suffix: timestamp
-          title: Update Dataset
+          branch: update/material-icon-theme
+          title: Update material-icon-theme
