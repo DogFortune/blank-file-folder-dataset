@@ -2072,5 +2072,10 @@
     "warp.md": "warp",
     "skill.md": "skill",
     "instructions.md": "instructions",
-    "instruction.md": "instructions"
+    "instruction.md": "instructions",
+    "appwrite.json": "appwrite",
+    "appwrite.js": "appwrite",
+    "appwrite.ts": "appwrite",
+    "eas.json": "expo",
+    ".easignore": "expo"
 }
