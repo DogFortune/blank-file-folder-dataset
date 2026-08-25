@@ -306,7 +306,6 @@
     "vcxproj.filters": "visualstudio",
     "wixproj": "visualstudio",
     "bas": "visualstudio",
-    "brs": "visualstudio",
     "vba": "visualstudio",
     "vcl": "varnish",
     "pdb": "database",
