@@ -1279,6 +1279,12 @@
     "azure-pipelines-main.yml": "azure-pipelines",
     "azure-pipelines-main.yaml": "azure-pipelines",
     "vagrantfile": "vagrant",
+    "prisma7.config.js": "prisma",
+    "prisma7.config.mjs": "prisma",
+    "prisma7.config.cjs": "prisma",
+    "prisma7.config.ts": "prisma",
+    "prisma7.config.mts": "prisma",
+    "prisma7.config.cts": "prisma",
     "prisma.config.js": "prisma",
     "prisma.config.mjs": "prisma",
     "prisma.config.cjs": "prisma",
@@ -2146,5 +2152,7 @@
     "appwrite.ts": "appwrite",
     "eas.json": "expo",
     ".easignore": "expo",
-    "agents.md": "agent"
+    "agents.md": "agent",
+    "zizmor.yml": "zizmor",
+    "zizmor.yaml": "zizmor"
 }
